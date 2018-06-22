@@ -1,0 +1,19 @@
+.cc{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    flex-wrap: wrap;
+    &__main-page {
+        width: 50%;
+        height: 100%;
+    }
+    &__date-input {
+        width: 50%;
+        background: #f77b34;
+        height: 100%;
+    }
+    &results {
+        width: 50%;
+        height: 100%;
+    }
+}
