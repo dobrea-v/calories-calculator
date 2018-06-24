@@ -1,19 +1,170 @@
+@import 'variables.scss';
+@import '_main-page-animations.scss';
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 .cc{
     display: flex;
     justify-content: center;
     height: 100vh;
     flex-wrap: wrap;
     &__main-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        left: 0;
         width: 50%;
         height: 100%;
+        background-color: $light-grey;
+        animation: slideInLeft 1s, fadeIn 1s ease-in-out;
+
+        &__logo {
+
+        }
+        &__title {
+            span {
+                font-size: 48px;
+                font-weight: 700;
+            }
+        }
+
+        &:after,
+        &:before {
+            left: 50%;
+            bottom: 50%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        &:after {
+            border-left-color: $light-grey;
+            border-width: 15px;
+            margin-top: 0px;
+        }
+        &:before {
+            border-left-color: $light-grey;
+            border-width: 15px;
+            margin-left: 0px;
+        }   
     }
     &__date-input {
+        right: 0;
         width: 50%;
         background: #f77b34;
         height: 100%;
+        -webkit-animation: slideInRight 1s, fadeIn 1s ease-in-out;
+        -moz-animation: slideInRight 1s, fadeIn 1s ease-in-out;
+        animation: slideInRight 1s, fadeIn 1s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+
+        input {
+            width: 220px;
+            height: 42px;
+            background: #fff;
+            border: 1px solid #eaeaea;
+        }
+
+        button {
+            margin: 15px;
+            padding: 15px;
+            background: $dark-grey;
+            color: #FFF;
+        }
     }
-    &results {
+    &__results {
         width: 50%;
         height: 100%;
     }
 }
+
+
+
+.from-left {
+    width: 50%;
+    height: 40px;
+    background: blue;
+    position: relative;
+    left: 0;
+    -webkit-animation: slideInLeft 1s ease-in-out;
+    -moz-animation: slideInLeft 1s ease-in-out;
+    animation: slideInLeft 1s ease-in-out;
+  }
+  .from-right {
+    width: 50%;
+    height: 40px;
+    background: red;
+    position: relative;
+    right: 0;
+    -webkit-animation: slideInRight 1s ease-in-out;
+    -moz-animation: slideInRight 1s ease-in-out;
+    animation: slideInRight 1s ease-in-out;
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+  @keyframes slideOut {
+      from {
+          opacity: 1;
+          transform: translateX(0)
+      }
+      to {
+          opacity: 0;
+          position: absolute;
+          //left: -1000px;
+      }
+  }
+
+  .slide-out {
+      //position: absolute;
+      animation: slideLeft 0.5s ease-in-out;
+  }
+
+
+  @keyframes slideLeft {
+      from {
+          opacity: 1;
+          transform: translateX(0);
+      }
+
+      to {
+          opacity: 0;
+          position: absolute;
+          left: -9999px;
+          transform: translateX(-100%);
+      }
+  }
